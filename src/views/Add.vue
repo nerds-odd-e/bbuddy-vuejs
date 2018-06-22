@@ -9,12 +9,14 @@
       <input type="text" v-model="balance"/>
     </div>
     <div>
-      <button v-on:click="addAccount">Add Account</button>
+      <button v-on:click="addAccount">Save</button>
     </div>
   </div>
 </template>
 
 <script>
+import { callApi } from '../api'
+
 export default {
   name: 'add-account',
   data: () => ({
@@ -23,6 +25,10 @@ export default {
   }),
   methods: {
     addAccount () {
+      callApi('accounts', 'post', {
+        name: this.name,
+        balance: this.balance
+      })()
     }
   }
 }
