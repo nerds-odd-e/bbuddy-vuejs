@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { callApi } from '../api'
+import { callApi } from '@/api'
 
 export default {
   name: 'add-account',
