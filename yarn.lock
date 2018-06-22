@@ -7820,9 +7820,9 @@ vue@^2.5.16:
   version "2.5.16"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.16.tgz#07edb75e8412aaeed871ebafa99f4672584a0085"
 
-vuex-promise-middleware@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/vuex-promise-middleware/-/vuex-promise-middleware-1.0.0.tgz#04aeaf65bcccc2ab3d626bb99f8f3c0a87f9fcf3"
+vuex-promise-middleware@nerds-odd-e/vuex-promise-middleware#1.2.0:
+  version "1.1.0"
+  resolved "https://codeload.github.com/nerds-odd-e/vuex-promise-middleware/tar.gz/c7d264156d4dd084e927d91d4714bde14138576e"
 
 vuex@^3.0.1:
   version "3.0.1"

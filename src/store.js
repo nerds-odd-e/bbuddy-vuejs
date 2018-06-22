@@ -1,18 +1,16 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import VuexPromiseMiddleware from 'vuex-promise-middleware'
 import { callApi } from './api'
+import promisePlugin from 'vuex-promise-middleware'
 
 Vue.use(Vuex)
-
-const plugins = [VuexPromiseMiddleware]
 
 export const FETCH_ACCOUNTS = 'FETCH_ACCOUNTS'
 export const FETCH_ACCOUNTS_SUCCEEDED = 'FETCH_ACCOUNTS_SUCCEEDED'
 export const FETCH_ACCOUNTS_FAILED = 'FETCH_ACCOUNTS_FAILED'
 
 export default new Vuex.Store({
-  plugins,
+  plugins: [promisePlugin],
   state: {
     accounts: [],
     pending: false,
@@ -38,10 +36,7 @@ export default new Vuex.Store({
   },
   actions: {
     [FETCH_ACCOUNTS] ({commit}) {
-      commit(FETCH_ACCOUNTS)
-      callApi('accounts', 'get', {})().
-        then(response => commit(FETCH_ACCOUNTS_SUCCEEDED, response)).
-        catch(respones => commit(FETCH_ACCOUNTS_FAILED, respones))
+      commit(FETCH_ACCOUNTS, callApi('accounts', 'get', {})())
     }
   }
 })
