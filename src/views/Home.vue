@@ -14,7 +14,9 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex'
+import { createNamespacedHelpers } from 'vuex'
+
+const {mapActions, mapState} = createNamespacedHelpers('accounts')
 
 export default {
   name: 'home',
@@ -22,15 +24,10 @@ export default {
     'accounts'
   ]),
   methods: mapActions([
-    'FETCH_ACCOUNTS'
+    'fetchAccounts'
   ]),
   mounted () {
-    this.FETCH_ACCOUNTS()
+    this.fetchAccounts()
   }
-  // data: () => ({
-  //   accounts: [
-  //     {name: 'aaa', balance: '12388'}
-  //   ]
-  // })
 }
 </script>
