@@ -14,15 +14,13 @@
 </template>
 
 <script>
-import { createNamespacedHelpers } from 'vuex'
-
-const {mapActions, mapState} = createNamespacedHelpers('accounts')
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'home',
-  computed: mapState([
-    'accounts'
-  ]),
+  computed: mapState({
+    accounts: state => state.accounts.list
+  }),
   methods: mapActions([
     'fetchAccounts'
   ]),

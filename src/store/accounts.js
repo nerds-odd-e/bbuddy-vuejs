@@ -1,11 +1,11 @@
 import { callApi } from '../api'
 
-export const FETCH_ACCOUNTS = 'FETCH_ACCOUNTS'
-export const FETCH_ACCOUNTS_SUCCEEDED = 'FETCH_ACCOUNTS_SUCCEEDED'
-export const FETCH_ACCOUNTS_FAILED = 'FETCH_ACCOUNTS_FAILED'
+const FETCH_ACCOUNTS = 'FETCH_ACCOUNTS'
+const FETCH_ACCOUNTS_SUCCEEDED = 'FETCH_ACCOUNTS_SUCCEEDED'
+const FETCH_ACCOUNTS_FAILED = 'FETCH_ACCOUNTS_FAILED'
 
 const state = {
-  accounts: [],
+  list: [],
   pending: false,
   error: null
 }
@@ -17,7 +17,7 @@ const mutations = {
   },
 
   [FETCH_ACCOUNTS_SUCCEEDED] (state, payload) {
-    state.accounts = payload.data
+    state.list = payload.data
     state.pending = false
     state.error = null
   },
@@ -25,7 +25,7 @@ const mutations = {
   [FETCH_ACCOUNTS_FAILED] (state, payload) {
     state.pending = false
     state.error = payload
-    state.accounts = []
+    state.list = []
   }
 }
 
@@ -36,7 +36,6 @@ const actions = {
 }
 
 export default {
-  namespaced: true,
   state,
   mutations,
   actions
