@@ -11,13 +11,14 @@
     <div>
       <button v-on:click="addAccount">Save</button>
     </div>
+    <Toast/>
   </div>
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex'
+import { mapActions } from 'vuex'
 import { mapFields } from 'vuex-map-fields'
-import Vue from 'vue'
+import Toast from '@/components/Toast.vue'
 
 export default {
   name: 'add-account',
@@ -25,23 +26,13 @@ export default {
     ...mapFields([
       'accounts.current.name',
       'accounts.current.balance'
-    ]),
-    ...mapState({
-      message: state => state.toast.message,
-      type: state => state.toast.type
-    })
+    ])
   },
   methods: mapActions([
     'addAccount'
   ]),
-  watch: {
-    message (newValue, oldValue) {
-      Vue.toasted.show(newValue, {
-        type: this.type,
-        position: 'bottom-center',
-        duration: 2000
-      })
-    }
+  components: {
+    Toast
   }
 }
 </script>
