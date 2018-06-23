@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const callApi = (endpoint, method, data) => {
-  return () => axios.request({
+  return axios.request({
     url: 'http://localhost:3000/' + endpoint,
     headers: {
       'access-token': 'evpZgOmKhHDhvyGCWAnxmQ',

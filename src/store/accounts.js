@@ -43,10 +43,10 @@ const mutations = {
 
 const actions = {
   fetchAccounts ({commit}) {
-    commit(FETCH_ACCOUNTS, callApi('accounts', 'get', {})())
+    commit(FETCH_ACCOUNTS, callApi('accounts', 'get', {}))
   },
   addAccount ({state, commit}) {
-    commit(ADD_ACCOUNT, callApi('accounts', 'post', {...state.current})())
+    commit(ADD_ACCOUNT, callApi('accounts', 'post', {...state.current}))
   }
 }
 
