@@ -27,15 +27,17 @@ export default {
       'accounts.current.balance'
     ]),
     ...mapState({
-      message: state => state.toast.message
+      message: state => state.toast.message,
+      type: state => state.toast.type
     })
   },
   methods: mapActions([
     'addAccount'
   ]),
   watch: {
-    message: (newValue, oldValue) => {
-      Vue.toasted.success(newValue, {
+    message (newValue, oldValue) {
+      Vue.toasted.show(newValue, {
+        type: this.type,
         position: 'bottom-center',
         duration: 2000
       })

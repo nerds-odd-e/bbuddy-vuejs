@@ -5,36 +5,30 @@ const FETCH_ACCOUNTS_SUCCEEDED = 'FETCH_ACCOUNTS_SUCCEEDED'
 const FETCH_ACCOUNTS_FAILED = 'FETCH_ACCOUNTS_FAILED'
 const ADD_ACCOUNT = 'ADD_ACCOUNT'
 export const ADD_ACCOUNT_SUCCEEDED = 'ADD_ACCOUNT_SUCCEEDED'
+export const ADD_ACCOUNT_FAILED = 'ADD_ACCOUNT_FAILED'
 
 const state = {
   current: {},
   list: [],
-  pending: false,
-  error: null
+  pending: false
 }
 
 const mutations = {
   [FETCH_ACCOUNTS] (state) {
     state.pending = true
-    state.error = null
   },
 
   [FETCH_ACCOUNTS_SUCCEEDED] (state, payload) {
     state.list = payload.data
     state.pending = false
-    state.error = null
   },
 
   [FETCH_ACCOUNTS_FAILED] (state, payload) {
     state.pending = false
-    state.error = payload
     state.list = []
   },
 
-  [ADD_ACCOUNT] (state) {
-    state.pending = true
-    state.error = null
-  },
+  [ADD_ACCOUNT] (state) { },
 
   [ADD_ACCOUNT_SUCCEEDED] (state, payload) {
     state.current = {}
