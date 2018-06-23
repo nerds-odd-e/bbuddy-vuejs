@@ -7820,6 +7820,10 @@ vue@^2.5.16:
   version "2.5.16"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.16.tgz#07edb75e8412aaeed871ebafa99f4672584a0085"
 
+vuex-map-fields@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/vuex-map-fields/-/vuex-map-fields-1.3.0.tgz#5af2ec96904d41f8abc0be9180bdfe538f85b69f"
+
 vuex-promise-middleware@nerds-odd-e/vuex-promise-middleware#1.2.0:
   version "1.1.0"
   resolved "https://codeload.github.com/nerds-odd-e/vuex-promise-middleware/tar.gz/c7d264156d4dd084e927d91d4714bde14138576e"

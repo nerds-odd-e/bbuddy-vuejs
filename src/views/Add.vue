@@ -15,21 +15,19 @@
 </template>
 
 <script>
-import { callApi } from '@/api'
+import { mapActions } from 'vuex'
+import { mapFields } from 'vuex-map-fields'
 
 export default {
   name: 'add-account',
-  data: () => ({
-    name: '',
-    balance: ''
-  }),
-  methods: {
-    addAccount () {
-      callApi('accounts', 'post', {
-        name: this.name,
-        balance: this.balance
-      })()
-    }
-  }
+  computed: {
+    ...mapFields([
+      'accounts.current.name',
+      'accounts.current.balance'
+    ])
+  },
+  methods: mapActions([
+    'addAccount'
+  ])
 }
 </script>
