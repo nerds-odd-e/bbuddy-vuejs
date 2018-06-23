@@ -5,7 +5,7 @@ import {
   FETCH_ACCOUNTS_FAILED
 } from '@/store/accounts'
 
-describe('Toast', () => {
+describe('Store Toast', () => {
   let state
   beforeEach(() => {
     state = require('@/store/toast').state

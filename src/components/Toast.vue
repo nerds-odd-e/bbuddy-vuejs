@@ -5,6 +5,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import { message } from './watch/toast'
 
 export default {
   name: 'toast',
@@ -14,11 +15,7 @@ export default {
   }),
   watch: {
     message (newValue, oldValue) {
-      this.$toasted.show(newValue, {
-        type: this.type,
-        position: 'bottom-center',
-        duration: 2000
-      })
+      message(this.type, newValue, oldValue)
     }
   }
 }
