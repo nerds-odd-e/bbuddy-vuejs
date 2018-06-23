@@ -15,8 +15,9 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import { mapFields } from 'vuex-map-fields'
+import Vue from 'vue'
 
 export default {
   name: 'add-account',
@@ -24,10 +25,21 @@ export default {
     ...mapFields([
       'accounts.current.name',
       'accounts.current.balance'
-    ])
+    ]),
+    ...mapState({
+      message: state => state.toast.message
+    })
   },
   methods: mapActions([
     'addAccount'
-  ])
+  ]),
+  watch: {
+    message: (newValue, oldValue) => {
+      Vue.toasted.success(newValue, {
+        position: 'bottom-center',
+        duration: 2000
+      })
+    }
+  }
 }
 </script>
