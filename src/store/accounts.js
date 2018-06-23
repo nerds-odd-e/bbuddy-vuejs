@@ -1,19 +1,19 @@
 import { callApi } from '../api'
 
-const FETCH_ACCOUNTS = 'FETCH_ACCOUNTS'
-const FETCH_ACCOUNTS_SUCCEEDED = 'FETCH_ACCOUNTS_SUCCEEDED'
+export const FETCH_ACCOUNTS = 'FETCH_ACCOUNTS'
+export const FETCH_ACCOUNTS_SUCCEEDED = 'FETCH_ACCOUNTS_SUCCEEDED'
 export const FETCH_ACCOUNTS_FAILED = 'FETCH_ACCOUNTS_FAILED'
-const ADD_ACCOUNT = 'ADD_ACCOUNT'
+export const ADD_ACCOUNT = 'ADD_ACCOUNT'
 export const ADD_ACCOUNT_SUCCEEDED = 'ADD_ACCOUNT_SUCCEEDED'
 export const ADD_ACCOUNT_FAILED = 'ADD_ACCOUNT_FAILED'
 
-const state = {
+export const state = {
   current: {},
   list: [],
   pending: false
 }
 
-const mutations = {
+export const mutations = {
   [FETCH_ACCOUNTS] (state) {
     state.pending = true
   },
