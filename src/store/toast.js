@@ -4,12 +4,12 @@ import {
   FETCH_ACCOUNTS_FAILED
 } from './accounts'
 
-const state = {
+export const state = {
   message: '',
   type: 'info'
 }
 
-const mutations = {
+export const mutations = {
 
   [ADD_ACCOUNT_SUCCEEDED] (state) {
     state.message = 'Add Account Successfully'
