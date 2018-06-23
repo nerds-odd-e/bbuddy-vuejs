@@ -10,11 +10,13 @@
         {{account.name}} {{account.balance}}
       </li>
     </ul>
+    <Toast/>
   </div>
 </template>
 
 <script>
 import { mapActions, mapState } from 'vuex'
+import Toast from '@/components/Toast.vue'
 
 export default {
   name: 'home',
@@ -26,6 +28,9 @@ export default {
   ]),
   mounted () {
     this.fetchAccounts()
+  },
+  components: {
+    Toast
   }
 }
 </script>
