@@ -9,14 +9,14 @@
       <input type="text" v-model="balance"/>
     </div>
     <div>
-      <button>Save</button>
+      <button v-on:click="editAccount">Save</button>
     </div>
   </div>
 </template>
 
 <script>
 import { mapFields } from 'vuex-map-fields'
-import { mapMutations } from 'vuex'
+import { mapActions, mapMutations } from 'vuex'
 
 export default {
   name: 'edit-account',
@@ -30,7 +30,10 @@ export default {
   methods: {
     ...mapMutations({
       selectAccount: 'SELECT_ACCOUNT'
-    })
+    }),
+    ...mapActions([
+      'editAccount'
+    ])
   },
   mounted () {
     this.selectAccount(this.id)

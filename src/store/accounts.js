@@ -7,6 +7,8 @@ export const ADD_ACCOUNT = 'ADD_ACCOUNT'
 export const ADD_ACCOUNT_SUCCEEDED = 'ADD_ACCOUNT_SUCCEEDED'
 export const ADD_ACCOUNT_FAILED = 'ADD_ACCOUNT_FAILED'
 export const SELECT_ACCOUNT = 'SELECT_ACCOUNT'
+export const EDIT_ACCOUNT = 'EDIT_ACCOUNT'
+export const EDIT_ACCOUNT_SUCCEEDED = 'EDIT_ACCOUNT_SUCCEEDED'
 
 export const state = {
   current: {},
@@ -37,7 +39,11 @@ export const mutations = {
 
   [SELECT_ACCOUNT] (state, id) {
     state.current = state.list.find(v => v.id === id)
-  }
+  },
+
+  [EDIT_ACCOUNT] (state) { },
+
+  [EDIT_ACCOUNT_SUCCEEDED] (state, payload) { }
 }
 
 const actions = {
@@ -46,6 +52,10 @@ const actions = {
   },
   addAccount ({state, commit}) {
     commit(ADD_ACCOUNT, callApi('accounts', 'post', {...state.current}))
+  },
+  editAccount ({state, commit}) {
+    commit(EDIT_ACCOUNT,
+      callApi(`accounts/${state.current.id}`, 'put', {...state.current}))
   }
 }
 
