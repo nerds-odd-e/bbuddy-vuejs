@@ -43,7 +43,9 @@ export const mutations = {
 
   [EDIT_ACCOUNT] (state) { },
 
-  [EDIT_ACCOUNT_SUCCEEDED] (state, payload) { }
+  [EDIT_ACCOUNT_SUCCEEDED] (state, payload) {
+    state.current = {}
+  }
 }
 
 const actions = {

@@ -1,6 +1,8 @@
 import {
   ADD_ACCOUNT,
   ADD_ACCOUNT_SUCCEEDED,
+  EDIT_ACCOUNT,
+  EDIT_ACCOUNT_SUCCEEDED,
   FETCH_ACCOUNTS,
   FETCH_ACCOUNTS_FAILED,
   FETCH_ACCOUNTS_SUCCEEDED,
@@ -78,6 +80,28 @@ describe('Accounts', () => {
     }
 
     mutations[ADD_ACCOUNT_SUCCEEDED](state)
+
+    expect(state).toEqual({
+      ...initialState,
+      current: {}
+    })
+  })
+
+  test('edit account', () => {
+    state = initialState
+
+    mutations[EDIT_ACCOUNT](state)
+
+    expect(state).toEqual(initialState)
+  })
+
+  test('edit account succeeded', () => {
+    state = {
+      ...initialState,
+      current: account
+    }
+
+    mutations[EDIT_ACCOUNT_SUCCEEDED](state)
 
     expect(state).toEqual({
       ...initialState,
