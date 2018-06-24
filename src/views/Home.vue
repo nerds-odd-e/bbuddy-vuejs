@@ -7,7 +7,10 @@
   <div class="home">
     <ul class="accounts">
       <li v-bind:key="account.id" v-for="account in accounts">
-        {{account.name}} {{account.balance}}
+        <router-link :to="{ name: 'edit', params: {id: account.id } }">
+          {{account.name}}
+        </router-link>
+        {{account.balance}}
       </li>
     </ul>
     <Toast/>
