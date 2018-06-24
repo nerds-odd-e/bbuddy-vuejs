@@ -9,6 +9,7 @@ export const ADD_ACCOUNT_FAILED = 'ADD_ACCOUNT_FAILED'
 export const SELECT_ACCOUNT = 'SELECT_ACCOUNT'
 export const EDIT_ACCOUNT = 'EDIT_ACCOUNT'
 export const EDIT_ACCOUNT_SUCCEEDED = 'EDIT_ACCOUNT_SUCCEEDED'
+export const EDIT_ACCOUNT_FAILED = 'EDIT_ACCOUNT_FAILED'
 
 export const state = {
   current: {},

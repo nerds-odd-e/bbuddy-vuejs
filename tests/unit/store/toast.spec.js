@@ -2,6 +2,7 @@ import { mutations } from '@/store/toast'
 import {
   ADD_ACCOUNT_FAILED,
   ADD_ACCOUNT_SUCCEEDED,
+  EDIT_ACCOUNT_FAILED,
   EDIT_ACCOUNT_SUCCEEDED,
   FETCH_ACCOUNTS_FAILED
 } from '@/store/accounts'
@@ -48,4 +49,12 @@ describe('Store Toast', () => {
     })
   })
 
+  test('edit account failed', () => {
+    mutations[EDIT_ACCOUNT_FAILED](state)
+
+    expect(state).toEqual({
+      message: 'Edit Account Failed',
+      type: 'error'
+    })
+  })
 })
