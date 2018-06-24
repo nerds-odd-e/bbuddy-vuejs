@@ -11,12 +11,14 @@
     <div>
       <button v-on:click="editAccount">Save</button>
     </div>
+    <Toast/>
   </div>
 </template>
 
 <script>
 import { mapFields } from 'vuex-map-fields'
 import { mapActions, mapMutations } from 'vuex'
+import Toast from '@/components/Toast.vue'
 
 export default {
   name: 'edit-account',
@@ -37,6 +39,9 @@ export default {
   },
   mounted () {
     this.selectAccount(this.id)
+  },
+  components: {
+    Toast
   }
 }
 </script>
