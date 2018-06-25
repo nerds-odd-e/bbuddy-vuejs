@@ -111,14 +111,6 @@ describe('Accounts', () => {
     })
   })
 
-  test('delete account', () => {
-    state = initialState
-
-    mutations[DELETE_ACCOUNT](state)
-
-    expect(state).toEqual(initialState)
-  })
-
   test('delete account succeeded', () => {
     state = {
       ...initialState,
