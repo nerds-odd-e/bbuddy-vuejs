@@ -10,6 +10,9 @@ export const SELECT_ACCOUNT = 'SELECT_ACCOUNT'
 export const EDIT_ACCOUNT = 'EDIT_ACCOUNT'
 export const EDIT_ACCOUNT_SUCCEEDED = 'EDIT_ACCOUNT_SUCCEEDED'
 export const EDIT_ACCOUNT_FAILED = 'EDIT_ACCOUNT_FAILED'
+export const DELETE_ACCOUNT = 'DELETE_ACCOUNT'
+export const DELETE_ACCOUNT_SUCCEEDED = 'DELETE_ACCOUNT_SUCCEEDED'
+export const DELETE_ACCOUNT_FAILED = 'DELETE_ACCOUNT_FAILED'
 
 export const state = {
   current: {},
@@ -46,6 +49,12 @@ export const mutations = {
 
   [EDIT_ACCOUNT_SUCCEEDED] (state, payload) {
     state.current = {}
+  },
+
+  [DELETE_ACCOUNT] (state) { },
+
+  [DELETE_ACCOUNT_SUCCEEDED] (state, payload) {
+    state.current = {}
   }
 }
 
@@ -59,6 +68,9 @@ const actions = {
   editAccount ({state, commit}) {
     commit(EDIT_ACCOUNT,
       callApi(`accounts/${state.current.id}`, 'put', {...state.current}))
+  },
+  deleteAccount ({state, commit}, id) {
+    commit(DELETE_ACCOUNT, callApi(`accounts/${id}`, 'delete', {}))
   }
 }
 

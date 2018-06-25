@@ -11,6 +11,7 @@
           {{account.name}}
         </router-link>
         {{account.balance}}
+        <button v-on:click="deleteAccount(account.id)">Delete</button>
       </li>
     </ul>
     <Toast/>
@@ -27,7 +28,8 @@ export default {
     accounts: state => state.accounts.list
   }),
   methods: mapActions([
-    'fetchAccounts'
+    'fetchAccounts',
+    'deleteAccount'
   ]),
   mounted () {
     this.fetchAccounts()

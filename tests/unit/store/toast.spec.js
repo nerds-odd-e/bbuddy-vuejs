@@ -2,6 +2,8 @@ import { mutations } from '@/store/toast'
 import {
   ADD_ACCOUNT_FAILED,
   ADD_ACCOUNT_SUCCEEDED,
+  DELETE_ACCOUNT_FAILED,
+  DELETE_ACCOUNT_SUCCEEDED,
   EDIT_ACCOUNT_FAILED,
   EDIT_ACCOUNT_SUCCEEDED,
   FETCH_ACCOUNTS_FAILED
@@ -54,6 +56,24 @@ describe('Store Toast', () => {
 
     expect(state).toEqual({
       message: 'Edit Account Failed',
+      type: 'error'
+    })
+  })
+
+  test('delete account succeeded', () => {
+    mutations[DELETE_ACCOUNT_SUCCEEDED](state)
+
+    expect(state).toEqual({
+      message: 'Delete Account Successfully',
+      type: 'success'
+    })
+  })
+
+  test('delete account failed', () => {
+    mutations[DELETE_ACCOUNT_FAILED](state)
+
+    expect(state).toEqual({
+      message: 'Delete Account Failed',
       type: 'error'
     })
   })

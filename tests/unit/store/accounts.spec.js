@@ -1,6 +1,7 @@
 import {
   ADD_ACCOUNT,
   ADD_ACCOUNT_SUCCEEDED,
+  DELETE_ACCOUNT,
   EDIT_ACCOUNT,
   EDIT_ACCOUNT_SUCCEEDED,
   FETCH_ACCOUNTS,
@@ -9,6 +10,7 @@ import {
   mutations
 } from '@/store/accounts'
 import { deepClone } from '../helper'
+import { DELETE_ACCOUNT_SUCCEEDED } from '../../../src/store/accounts'
 
 describe('Accounts', () => {
   let state, initialState
@@ -102,6 +104,28 @@ describe('Accounts', () => {
     }
 
     mutations[EDIT_ACCOUNT_SUCCEEDED](state)
+
+    expect(state).toEqual({
+      ...initialState,
+      current: {}
+    })
+  })
+
+  test('delete account', () => {
+    state = initialState
+
+    mutations[DELETE_ACCOUNT](state)
+
+    expect(state).toEqual(initialState)
+  })
+
+  test('delete account succeeded', () => {
+    state = {
+      ...initialState,
+      current: account
+    }
+
+    mutations[DELETE_ACCOUNT_SUCCEEDED](state)
 
     expect(state).toEqual({
       ...initialState,

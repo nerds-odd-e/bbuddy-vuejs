@@ -1,6 +1,8 @@
 import {
   ADD_ACCOUNT_FAILED,
   ADD_ACCOUNT_SUCCEEDED,
+  DELETE_ACCOUNT_FAILED,
+  DELETE_ACCOUNT_SUCCEEDED,
   EDIT_ACCOUNT_FAILED,
   EDIT_ACCOUNT_SUCCEEDED,
   FETCH_ACCOUNTS_FAILED
@@ -35,6 +37,16 @@ export const mutations = {
 
   [EDIT_ACCOUNT_FAILED] (state) {
     state.message = 'Edit Account Failed'
+    state.type = 'error'
+  },
+
+  [DELETE_ACCOUNT_SUCCEEDED] (state) {
+    state.message = 'Delete Account Successfully'
+    state.type = 'success'
+  },
+
+  [DELETE_ACCOUNT_FAILED] (state) {
+    state.message = 'Delete Account Failed'
     state.type = 'error'
   }
 }
